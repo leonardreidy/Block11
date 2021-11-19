@@ -25,11 +25,20 @@ In any case, it seems that they are supported for the present and I have made th
 
 ## Building on the Generic Script
 
-J74's Generic Script contains most of the essential feature set that a MIDI controller would need to control Live 11, including redbox and other session controls, clip and scene launching, mixer and device controls, and so on. To adapt the script to a specific controller, J74 has designed the script to ensure that customisation is, for the most part, a matter of configuration, i.e., MIDI mapping by code. The file `MIDI_Map.py` contains a collection of variables that represent the mappings that are unique to an individual controller and each variable is annotated to guide the developer's attempts at customisations. The Block11 Script departs from this approach and is developed in a few key phases. 
+J74's Generic Script contains most of the essential feature set that a MIDI controller would need to control Live 11, including:
 
-In phase 0, substantial time was spent doing research and experimenting with the existing resources for remote script development. That phase drew to a close a couple of days ago when I finally found just the right combination of resources (documentation and the J74 Generic Script) to begin working effectively with remote scripts. 
+* session redbox and other session controls;
+* clip and scene launching; 
+* mixer and device controls; and so on. 
+
+To adapt the script to a specific controller, J74 has designed it to ensure that customisation is, for the most part, a matter of configuration, i.e., MIDI mapping by code. The file `/Block11/MIDI_Map.py` contains, by default, a collection of variables that represent feature configuration common to all controllers with respect to the given feature set. The default values are then replaced with values unique to the controller (Livid Block, in this case), such as MIDI note values corresponding to pads/buttons or MIDI CC values corresponding to controls like encoders or sliders. Moreover, each variable is annotated to guide the developer's attempts at customisations. The Block11 Script departs from this approach and is developed in a few key phases. 
+
+In phase 0, substantial time was spent doing research, sourcing and experimenting with the existing community resources for remote script development. That phase drew to a close a couple of days ago when I finally found just the right combination of resources (community documentation and the J74 Generic Script) to begin working effectively with remote scripts. 
 
 In phase 1, the current phase, the basic configurations or mappings will be assigned. This version will be available within the next week or two and it should cover the bases, assuming that there are no surprises with API deprecations. The goal at this stage will be to restore basic functionality to the Livid Block in Live 11. 
 
 In phase 2, the next phase, some more advanced customisations will be attempted with the remote script and additional features will be implemented, either with the remote scripts, or with a combination of the Block11 script and a Max Device rack to implement those features. 
+
+## Livid Block Configuration: MIDI Mappings in MIDI_Map.py [WIP]
+Watch this space!
 
