@@ -1,5 +1,7 @@
 from _Framework.ChannelStripComponent import ChannelStripComponent 
+
 TRACK_FOLD_DELAY = 5
+
 class SpecialChannelStripComponent(ChannelStripComponent):
     ' Subclass of channel strip component using select button for (un)folding tracks '
     __module__ = __name__

@@ -1,6 +1,7 @@
 import Live
 from _Framework.SessionZoomingComponent import SessionZoomingComponent
 from _Framework.ButtonElement import ButtonElement
+
 class SpecialZoomingComponent(SessionZoomingComponent):
     ' Special ZoomingComponent that uses clip stop buttons for stop all when zoomed '
     __module__ = __name__

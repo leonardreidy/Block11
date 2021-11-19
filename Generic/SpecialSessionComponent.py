@@ -1,6 +1,7 @@
 import Live
 from _Framework.SessionComponent import SessionComponent
 from _Framework.ButtonElement import ButtonElement
+
 class SpecialSessionComponent(SessionComponent):
     " Special SessionComponent for APC combination mode and button to fire selected clip slot "
     __module__ = __name__

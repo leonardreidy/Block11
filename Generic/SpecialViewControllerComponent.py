@@ -1,7 +1,9 @@
 import Live
 from _Framework.ControlSurfaceComponent import ControlSurfaceComponent
 from _Framework.ButtonElement import ButtonElement
+
 SHOW_PLAYING_CLIP_DELAY = 5
+
 class DetailViewControllerComponent(ControlSurfaceComponent):
     __module__ = __name__
     __doc__ = ' Component that can toggle the device chain- and clip view of the selected track '

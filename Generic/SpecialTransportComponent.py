@@ -6,6 +6,7 @@ from _Framework.SubjectSlot import subject_slot
 
 from .MIDI_Map import TEMPO_TOP
 from .MIDI_Map import TEMPO_BOTTOM
+
 class SpecialTransportComponent(TransportComponent):
     __doc__ = ' TransportComponent that only uses certain buttons if a shift button is pressed '
     def __init__(self):
