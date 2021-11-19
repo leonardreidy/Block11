@@ -42,3 +42,32 @@ In phase 2, the next phase, some more advanced customisations will be attempted 
 ## Livid Block Configuration: MIDI Mappings in MIDI_Map.py [WIP]
 Watch this space!
 
+## To use the Block11 Remote Script with Ableton Live 11
+Download the zip file for this repository or clone it locally with git. To download the zip file, just click on the big green button on the Github page for this repo marked `Code` and click `Download Zip`. To clone it locally with git use the following command in a directory of your choice (assuming Git is installed on your system):
+
+```sh
+git clone git@github.com:leonardreidy/Block11.git
+```
+
+Once you download/clone the project, note that the top-level project folder is called `Block11`, but you must install the subfolder (also `Block11`) only to the `Remote Scripts` directory on your system. The default location for remote scripts is the `Remote Scripts` directory which is a child of the following directory:
+
+```sh
+Windows: \Users\[username]\Documents\Ableton\User Library
+Mac: Macintosh HD/Users/[username]/Music/Ableton/User Library
+```
+
+When you are done, the file structure of the `Remote Scripts/` directory should look something like this (assuming you have no other third-party remote scripts):
+
+```sh
+Remote Scripts/
+├─ Block11/
+│  ├─ __init__.py
+│  ├─ Block11.py
+│  ├─ SpecialChannelStripComponent.py
+│  ├─ SpecialMixerComponent.py
+│  ├─ SpecialSessionComponent.py
+│  ├─ SpecialTransportComponent.py
+│  ├─ SpecialViewControllerComponent.py
+│  ├─ SpecialZoomingComponent.py
+```
+
