@@ -3,7 +3,7 @@
 # The clip session matrix definition must be matrix MATRIX_DEPTH * TRACK_NUMBER
 # All other vectors referring to tracks must be TRACK_NUMBER long.
 MATRIX_DEPTH = 8 #number of scenes in the box
-TRACK_NUMBER = 5 #number of tracks for Mixer mapping
+TRACK_NUMBER = 8 #number of tracks for Mixer mapping
 NUMBER_BUTTONS = 40 #number of buttons in BUTTON_VECTOR
 NUMBER_SLIDERS = 4 #number of sliders in SLIDER_VECTOR
 BANKS_NUMBER = 8 #number of parameter banks
