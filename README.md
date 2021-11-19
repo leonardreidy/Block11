@@ -10,7 +10,7 @@ The Block11 script is based on an older general purpose remote script by softwar
 
 ### Refactoring the Generic Script
 
-The Python interpreter installs in the OS bundled with various tools, among them, a script for porting Python 2.x code to Python 3.x code (`2to3.py`) and more information about that may be found [here](https://docs.python.org/3/library/2to3.html).
+The Python interpreter installs in the OS bundled with various tools, among them, a script for porting Python 2.x code to Python 3.x code (`2to3.py`) and more information about that may be found [here](https://docs.python.org/3/library/2to3.html). It was possible to port the J74 Generic Script to Python 3.x, and this port forms the basis of the Block11 remote script.
 
 ### Rationale for Building on the Generic Script
 
