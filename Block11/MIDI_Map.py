@@ -12,12 +12,12 @@ PAD_X_NUMBER = 4 #number of pad columns
 PAD_Y_NUMBER = 4 #number of pad rows
 
 ###########################################################
-# Combination Mode offsets for more identical surfaces
+# COMBINATION MODE OFFSETS FOR MORE IDENTICAL SURFACES
 TRACK_OFFSET = -1 #offset from the left of linked session origin; set to -1 for auto-joining of multiple instances
 SCENE_OFFSET = 0 #offset from the top of linked session origin (no auto-join)
 
 ###########################################################
-# Tempo Range
+# TEMPO RANGE
 TEMPO_TOP = 999.0 # Upper limit of tempo control in BPM (max is 999)
 TEMPO_BOTTOM = 30.0 # Lower limit of tempo control in BPM (min is 0)
 
@@ -127,8 +127,8 @@ BUTTON_VECTOR = (-1, #Global play 					[0]
                 -1, #Clip/Track view switch 		[15]
                 -1, #Device Lock (lock "blue hand")	[16]
                 -1, #Device on/off 					[17]
-                 7, #Device nav left 				[18]
-                15, #Device nav right 				[19]
+                -1, #Device nav left 				[18]
+                -1, #Device nav right 				[19]
                 -1, #Device bank nav left 			[20]
                 -1, #Device bank nav right 			[21]
                 -1, #Seek forward 					[22]
