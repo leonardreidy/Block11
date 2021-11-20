@@ -22,6 +22,7 @@
 import Live
 from _Framework.ControlSurfaceComponent import ControlSurfaceComponent
 from _Framework.ButtonElement import ButtonElement
+
 class blockClip(ControlSurfaceComponent):
     __module__ = __name__
     __doc__ = ' Clip Control for Block Script '
