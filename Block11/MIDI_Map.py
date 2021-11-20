@@ -352,11 +352,11 @@ TRACKSTOP_CH = (0, # Channel for Track 1
 ###########################################################
 # Track Select Buttons
 # Note: Must be at least TRACK_NUMBER long
-TRACKSEL = (30, #Track 1 Select
-            31, #Track 2
-            32, #Track 3
-            33, #Track 4
-            34, #Track 5
+TRACKSEL = (-1, #Track 1 Select
+            -1, #Track 2
+            -1, #Track 3
+            -1, #Track 4
+            -1, #Track 5
             -1, #Track 6
             -1, #Track 7
             -1, #Track 8
@@ -667,11 +667,11 @@ TRACKSOLO_CH = (0, # Channel for Track 1
 ###########################################################
 # Track Record/Arm Buttons
 # Note: Must be at least TRACK_NUMBER long
-TRACKREC = (35, #Track 1 Record
-            36, #Track 2
-            37, #Track 3
-            38, #Track 4
-            39, #Track 5
+TRACKREC = (-1, #Track 1 Record
+            -1, #Track 2
+            -1, #Track 3
+            -1, #Track 4
+            -1, #Track 5
             -1, #Track 6
             -1, #Track 7
             -1, #Track 8
