@@ -21,9 +21,9 @@
 
 import Live 
 if Live.Application.get_application().get_major_version() == 9:
-        from blockLive9 import blockLive
+        from .blockLive9 import blockLive
 else:
-        from blockLive8 import blockLive
+        from .blockLive8 import blockLive
         
 
 def create_instance(c_instance):
