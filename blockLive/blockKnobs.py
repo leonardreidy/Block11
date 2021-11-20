@@ -169,7 +169,7 @@ class blockKnobs(ModeSelectorComponent):
                         self._mixer.channel_strip(track).set_send_controls((None, None, None, None, None, None, None, self._controls[track]))
                         self._device.set_parameter_controls(tuple())
                     else:
-                        print 'Invalid mode index'
+                        print('Invalid mode index')
                         assert False
                 mode = self._knob_mode_names[self._mode_index]
                 if (mode != self._last_knob_mode):
