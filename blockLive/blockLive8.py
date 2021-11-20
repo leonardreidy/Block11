@@ -36,11 +36,11 @@ from _Framework.SessionComponent import SessionComponent
 from _Framework.SessionZoomingComponent import SessionZoomingComponent  
 from _Framework.SliderElement import SliderElement  
 from _Framework.TransportComponent import TransportComponent  
-from blockGlobal import blockGlobal
-from blockKnobs import blockKnobs
-from blockFaders import blockFaders
-from blockMixer import blockMixer
-from blockClip import blockClip
+from .blockGlobal import blockGlobal
+from .blockKnobs import blockKnobs
+from .blockFaders import blockFaders
+from .blockMixer import blockMixer
+from .blockClip import blockClip
 
 session = None  
 mixer = None
