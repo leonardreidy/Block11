@@ -241,7 +241,7 @@ BUTTON_VECTOR_CH = (0, #Global play 				[0] Channel
 SLIDER_VECTOR = (8, #Master track volume			[0]
                  9, #Cue level control				[1]
                 -1, #Crossfader control				[2]
-                 7, #Tempo control					[3]
+                -1, #Tempo control					[3]
                 )
 
 SLIDER_VECTOR_TYPE = (1, #Master track volume		[0] Type
