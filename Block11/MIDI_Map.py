@@ -18,14 +18,26 @@ SCENE_OFFSET = 0 #offset from the top of linked session origin (no auto-join)
 
 ###########################################################
 # Tempo Range
-TEMPO_TOP = 180.0 # Upper limit of tempo control in BPM (max is 999)
-TEMPO_BOTTOM = 100.0 # Lower limit of tempo control in BPM (min is 0)
+TEMPO_TOP = 999.0 # Upper limit of tempo control in BPM (max is 999)
+TEMPO_BOTTOM = 30.0 # Lower limit of tempo control in BPM (min is 0)
 
 ###########################################################
-# Individual Scene Buttons 
-# Note: must be at least MATRIX_DEPTH long
-# Type 0 == MIDI notes, Type 1 == MIDI CC
-# CH must be in the range 0 to 15 (corresponding to MIDI channels 1 to 16)
+# SCENE LAUNCH BUTTONS
+#
+# Note that there are three groups: 
+#
+# SCENELAUNCH      which maps the pad MIDI note value to the Scene Launch buttons in the Ableton UI
+# SCENELAUNCH_TYPE which identifies the MIDI TYPE of the control: Type 0 == MIDI notes, Type 1 == MIDI CC
+# SCENELAUNCH_CH   which identifies the MIDI channel for messages
+#
+# Note also that the length of the SCENELAUNCH tuple must be at least MATRIX_DEPTH long
+#
+# In general, SCENELAUNCH_CH config values must be in the range 0 to 15 (corresponding to 
+# MIDI channels 1 to 16) - but in point of fact the Livid Block controller executes all MIDI 
+# transactions on channel 1 by default. In this script, note also that channels are zero-indexed, 
+# so, for example, the SCENELAUNCH_CH tuple defined below sets the channel for each Scene launcher 
+# to channel 1, the first of the 16 MIDI channels, and since the first element in a zero-indexed
+# collection is denoted 0, the value that corresponds to MIDI channel 1 must be 0. 
 
 SCENELAUNCH = (56, #Scene 1
                57, #Scene 2
@@ -56,7 +68,7 @@ SCENELAUNCH_CH = (0, #Scene 1
 
 ###########################################################
 # Clip Matrix
-# Note: must be at least have MATRIX_DEPTH * TRACK_NUMBER dimensions 
+# Note: must have at least MATRIX_DEPTH * TRACK_NUMBER dimensions 
 
 # Track no.:     1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32
 CLIPNOTEMAP = ((0, 8, 16, 24, 32, 40, 48, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1), # 1
@@ -97,26 +109,26 @@ CLIPNOTEMAP_CH = ((0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 
 ###########################################################
 # Single Buttons
-BUTTON_VECTOR = (0, #Global play 					[0]
-                 1, #Global stop 					[1]
-                 2, #Global record 					[2]
-                54, #Tap tempo 						[3]
+BUTTON_VECTOR = (-1, #Global play 					[0]
+                -1, #Global stop 					[1]
+                -1, #Global record 					[2]
+                -1, #Tap tempo 						[3]
                 -1, #Tempo Nudge Up 				[4]
                 -1, #Tempo Nudge Down 				[5]
-                50, #Undo 							[6]
+                -1, #Undo 							[6]
                 -1, #Redo 							[7]
                 -1, #Loop 							[8]
                 -1, #Punch in	 					[9]
                 -1, #Punch out 						[10]
-                 3, #Overdub on/off 				[11]
-                 9, #Metronome on/off 				[12]
-                 4, #Record quantization on/off 	[13]
-                51, #Detail view switch 			[14]
-                52, #Clip/Track view switch 		[15]
+                -1, #Overdub on/off 				[11]
+                -1, #Metronome on/off 				[12]
+                -1, #Record quantization on/off 	[13]
+                -1, #Detail view switch 			[14]
+                -1, #Clip/Track view switch 		[15]
                 -1, #Device Lock (lock "blue hand")	[16]
                 -1, #Device on/off 					[17]
                  7, #Device nav left 				[18]
-                 8, #Device nav right 				[19]
+                15, #Device nav right 				[19]
                 -1, #Device bank nav left 			[20]
                 -1, #Device bank nav right 			[21]
                 -1, #Seek forward 					[22]
@@ -129,14 +141,14 @@ BUTTON_VECTOR = (0, #Global play 					[0]
                 -1, #Session Zoom down 				[29]
                 -1, #Session Zoom left 				[30]
                 -1, #Session Zoom right 			[31]
-                 5, #Track left 					[32]
-                 6, #Track right 					[33]
+                -1, #Track left 					[32]
+                -1, #Track right 					[33]
                 18, #Scene down 					[34]
                 13, #Scene up 						[35]
-                14, #Selected scene launch 			[36]
+                -1, #Selected scene launch 			[36]
                 -1, #Selected clip launch 			[37]
                 63, #Stop all clips 				[38]
-                53, #Master track select			[39]
+                -1, #Master track select			[39]
                 )
 
 BUTTON_VECTOR_TYPE = (0, #Global play 				[0] Type
@@ -224,12 +236,12 @@ BUTTON_VECTOR_CH = (0, #Global play 				[0] Channel
                 )
 
 ###########################################################
-# Single Sliders
+# SLIDERS
 
 SLIDER_VECTOR = (8, #Master track volume			[0]
                  9, #Cue level control				[1]
                 -1, #Crossfader control				[2]
-                -1, #Tempo control					[3]
+                 7, #Tempo control					[3]
                 )
 
 SLIDER_VECTOR_TYPE = (1, #Master track volume		[0] Type
@@ -246,7 +258,7 @@ SLIDER_VECTOR_CH = (0, #Master track volume			[0] Channel
 
 ###########################################################
 # Track Stop Buttons
-# Note: Must be at least TRACK_NUMBER long
+# Note: TRACKSTOP tuple must be at least TRACK_NUMBER long
 TRACKSTOP = ( 7, #Track 1 Clip Stop
              15, #Track 2
              23, #Track 3
@@ -457,11 +469,11 @@ TRACKSEL_CH = (0, # Channel for Track 1
 ###########################################################
 # Track Mute Buttons
 # Note: Must be at least TRACK_NUMBER long
-TRACKMUTE = (40, #Track 1 On/Off
-             41, #Track 2
-             42, #Track 3
-             43, #Track 4
-             44, #Track 5
+TRACKMUTE = (-1, #Track 1 On/Off
+             -1, #Track 2
+             -1, #Track 3
+             -1, #Track 4
+             -1, #Track 5
              -1, #Track 6
              -1, #Track 7
              -1, #Track 8
@@ -562,11 +574,11 @@ TRACKMUTE_CH = (0, # Channel for Track 1
 ###########################################################
 # Track Solo Buttons
 # Note: Must be at least TRACK_NUMBER long
-TRACKSOLO = (45, #Track 1 Solo
-             46, #Track 2
-             47, #Track 3
-             48, #Track 4
-             49, #Track 5
+TRACKSOLO = (-1, #Track 1 Solo
+             -1, #Track 2
+             -1, #Track 3
+             -1, #Track 4
+             -1, #Track 5
              -1, #Track 6
              -1, #Track 7
              -1, #Track 8
@@ -770,16 +782,16 @@ TRACKREC_CH = (0, # Channel for Track 1
              )
 
 ###########################################################
-# Track Volume Sliders
-# Note: Must be at least TRACK_NUMBER long
-TRACKVOL = (-1, #Track 1 Volume
-            -1, #Track 2
-            -1, #Track 3
-            -1, #Track 4
-            -1, #Track 5
-            -1, #Track 6
-            -1, #Track 7
-            -1, #Track 8
+# TRACK VOLUME ENCODERS
+# Note: TRACKVOL tuple must be at least TRACK_NUMBER long
+TRACKVOL = ( 3, #Track 1 Volume
+             2, #Track 2
+             1, #Track 3
+             0, #Track 4
+             5, #Track 5
+             4, #Track 6
+             6, #Track 7
+             7, #Track 8
             -1, #Track 9
             -1, #Track 10
             -1, #Track 11
