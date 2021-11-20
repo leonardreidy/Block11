@@ -110,7 +110,7 @@ class blockFaders(ModeSelectorComponent):
                     self._mixer.set_crossfader_control(None)
                     
                 else:
-                    print 'Invalid mode index'
+                    print('Invalid mode index')
                     assert False
                 mode = self._fader_mode_names[self._mode_index]
                 if (mode != self._last_fader_mode):
