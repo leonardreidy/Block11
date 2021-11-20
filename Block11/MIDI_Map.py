@@ -67,7 +67,7 @@ SCENELAUNCH_CH = (0, #Scene 1
                )
 
 ###########################################################
-# Clip Matrix
+# CLIP MATRIX (GRID)
 # Note: must have at least MATRIX_DEPTH * TRACK_NUMBER dimensions 
 
 # Track no.:     1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32
@@ -108,7 +108,7 @@ CLIPNOTEMAP_CH = ((0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
                )
 
 ###########################################################
-# Single Buttons
+# BUTTONS (PADS in GRID)
 BUTTON_VECTOR = (-1, #Global play 					[0]
                 -1, #Global stop 					[1]
                 -1, #Global record 					[2]
@@ -257,7 +257,7 @@ SLIDER_VECTOR_CH = (0, #Master track volume			[0] Channel
                 )
 
 ###########################################################
-# Track Stop Buttons
+# TRACK STOP BUTTONS (PER TRACK CLIP STOP)
 # Note: TRACKSTOP tuple must be at least TRACK_NUMBER long
 TRACKSTOP = ( 7, #Track 1 Clip Stop
              15, #Track 2
@@ -362,8 +362,8 @@ TRACKSTOP_CH = (0, # Channel for Track 1
              )
 
 ###########################################################
-# Track Select Buttons
-# Note: Must be at least TRACK_NUMBER long
+# TRACK SELECT BUTTONS
+# Note: TRACKSEL tuple must be at least TRACK_NUMBER long
 TRACKSEL = (-1, #Track 1 Select
             -1, #Track 2
             -1, #Track 3
@@ -467,8 +467,8 @@ TRACKSEL_CH = (0, # Channel for Track 1
              )
 
 ###########################################################
-# Track Mute Buttons
-# Note: Must be at least TRACK_NUMBER long
+# TRACK MUTE BUTTONS
+# Note: TRACKMUTE tuple must be at least TRACK_NUMBER long
 TRACKMUTE = (-1, #Track 1 On/Off
              -1, #Track 2
              -1, #Track 3
@@ -572,8 +572,8 @@ TRACKMUTE_CH = (0, # Channel for Track 1
              )
 
 ###########################################################
-# Track Solo Buttons
-# Note: Must be at least TRACK_NUMBER long
+# TRACK SOLO BUTTONS
+# Note: TRACKSOLO tuple must be at least TRACK_NUMBER long
 TRACKSOLO = (-1, #Track 1 Solo
              -1, #Track 2
              -1, #Track 3
@@ -677,8 +677,8 @@ TRACKSOLO_CH = (0, # Channel for Track 1
              )
 
 ###########################################################
-# Track Record/Arm Buttons
-# Note: Must be at least TRACK_NUMBER long
+# TRACK RECORD/ARM BUTTONS
+# Note: TRACKREC tuple must be at least TRACK_NUMBER long
 TRACKREC = (-1, #Track 1 Record
             -1, #Track 2
             -1, #Track 3
@@ -782,7 +782,7 @@ TRACKREC_CH = (0, # Channel for Track 1
              )
 
 ###########################################################
-# TRACK VOLUME ENCODERS
+# TRACK ENCODERS (A0 - A7 IN REFERENCE DOCUMENTATION)
 # Note: TRACKVOL tuple must be at least TRACK_NUMBER long
 TRACKVOL = ( 3, #Track 1 Volume
              2, #Track 2
@@ -887,8 +887,8 @@ TRACKVOL_CH = (0, # Channel for Track 1
              )
 
 ###########################################################
-# Track Pan Sliders
-# Note: Must be at least TRACK_NUMBER long
+# TRACK PAN SLIDERS/ENCODERS
+# Note: TRACKPAN tuple must be at least TRACK_NUMBER long
 TRACKPAN = (-1, #Track 1 Pan
             -1, #Track 2
             -1, #Track 3
@@ -992,8 +992,8 @@ TRACKPAN_CH = (0, # Channel for Track 1
              )
 
 ###########################################################
-# Track Send A Sliders
-# Note: Must be at least TRACK_NUMBER long
+# TRACK SEND A SLIDERS/ENCODERS
+# Note: TRACKSENDA tuple must be at least TRACK_NUMBER long
 TRACKSENDA = (-1, #Track 1 Send A
               -1, #Track 2
               -1, #Track 3
@@ -1097,8 +1097,8 @@ TRACKSENDA_CH = (0, # Channel for Track 1
              )
 
 ###########################################################
-# Track Send B Sliders
-# Note: Must be at least TRACK_NUMBER long
+# TRACK SEND B SLIDERS/ENCODERS
+# Note: TRACKSENDB tuple must be at least TRACK_NUMBER long
 TRACKSENDB = (-1, #Track 1 Send B
               -1, #Track 2
               -1, #Track 3
@@ -1202,8 +1202,8 @@ TRACKSENDB_CH = (0, # Channel for Track 1
              )
 
 ###########################################################
-# Track Send C Sliders
-# Note: Must be at least TRACK_NUMBER long
+# TRACK SEND C SLIDERS/ENCODERS
+# Note: TRACKSENDC tuple must be at least TRACK_NUMBER long
 TRACKSENDC = (-1, #Track 1 Send C
               -1, #Track 2
               -1, #Track 3
@@ -1307,7 +1307,7 @@ TRACKSENDC_CH = (0, # Channel for Track 1
              )
 
 ###########################################################
-# Device Bank
+# DEVICE BANK
 # Note: All 8 banks must be assigned to positive values in order for bank selection to work
 DEVICEBANK = (-1, #Bank 1
               -1, #Bank 2
@@ -1340,7 +1340,7 @@ DEVICEBANK_CH = (0, #Bank 1
               )
 
 ###########################################################
-# Parameter Control Sliders
+# PARAMETER CONTROL SLIDERS/ENCODERS
 # Note: All 8 params must be assigned to positive values in order for param control to work
 PARAMCONTROL = (-1, #Param 1
                 -1, #Param 2
@@ -1373,7 +1373,7 @@ PARAMCONTROL_CH = (0, #Param 1
                 )
 
 ###########################################################
-# Pad Translations for Drum Rack
+# PAD TRANSLATIONS FOR DRUM RACK
 DRUM_PADS = (-1, -1, -1, -1, # MIDI note numbers for 4 x 4 Drum Rack
              -1, -1, -1, -1, # Mapping will be disabled if any notes are set to -1
              -1, -1, -1, -1, # Notes will be "swallowed" if already mapped elsewhere
