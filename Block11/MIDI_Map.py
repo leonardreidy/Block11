@@ -247,13 +247,13 @@ SLIDER_VECTOR_CH = (0, #Master track volume			[0] Channel
 ###########################################################
 # Track Stop Buttons
 # Note: Must be at least TRACK_NUMBER long
-TRACKSTOP = (-1, #Track 1 Clip Stop
-             -1, #Track 2
-             -1, #Track 3
-             -1, #Track 4
-             -1, #Track 5
-             -1, #Track 6
-             -1, #Track 7
+TRACKSTOP = ( 7, #Track 1 Clip Stop
+             15, #Track 2
+             23, #Track 3
+             31, #Track 4
+             39, #Track 5
+             47, #Track 6
+             55, #Track 7
              -1, #Track 8
              -1, #Track 9
              -1, #Track 10
