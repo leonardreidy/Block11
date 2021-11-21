@@ -14,7 +14,7 @@ The Block11 remote script ports J74's Generic script to Python 3.x and uses this
 
 0. Download the zip file 
 1. Unzip the downloaded file (in any location on your system)
-2. Note that after unzipping, you will see a directory called `Block11`; this is the directory you will need to move/copy in order to install
+2. Note that after unzipping, you will see a directory called `Block11` which contains a collection of Python (`.py`) files; this is the directory you will need to move/copy in order to install
 3. Navigate to the `Remote Scripts` directory and place a copy of the Block11 directory in it. The path to the default location should look like this:
 
 ```sh
