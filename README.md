@@ -6,68 +6,62 @@ This document describes the Block11 Python Remote Script for use with the Livid 
 
 ## Introduction
 
-The Block11 script is based on an older general purpose remote script by software developer and artist J74. The original (Generic Python Remote Script) may be found [here](https://github.com/j74/Generic-Python-Remote-Script). It is more than 6 years old and incompatible with current versions of Ableton Live because Ableton moved away from Python 2.x to Python 3.x with the release of Live 11. However, it is relatively straightforward to refactor the code to use Python 3.x syntax and the old `_Framework` classes appear to be still supported. 
+The Block11 script is based on an older general purpose remote script by software developer and artist J74. The original (Generic Python Remote Script) may be found [here](https://github.com/j74/Generic-Python-Remote-Script). It is more than 6 years old and incompatible with current versions of Ableton Live because Ableton's Python interpreter experienced a major version upgrade from Python 2.x to Python 3.x with the release of Live 11. 
 
-### Refactoring the Generic Script
+The Block11 remote script ports J74's Generic script to Python 3.x and uses this as a base for the relevant customisations to provide a configuration more suitable to the Livid Block controller. If you have used NativeKontrol's blockLive script in the past, the current implementation of Block11 provides the features of blockLive's _Launch Mode_. It is hoped that in the near future, some additional improvements will be made to the script to support extended modes similar in form if not in all details to the NativeKontrol script. 
 
-The Python interpreter installs in the OS bundled with various tools, among them, a script for porting Python 2.x code to Python 3.x code (`2to3.py`) and more information about that may be found [here](https://docs.python.org/3/library/2to3.html). It was possible to port the J74 Generic Script to Python 3.x, and this port forms the basis of the Block11 remote script.
+## How to Use
 
-### Rationale for Building on the Generic Script
-
-Writing third-party remote scripts for MIDI controller integration with Ableton Live 11 presents challenges that were not present in the landscape before its release. Ableton Live 10 and below supported Python 2.x and the community had built a substantial body of documentation, tutorials, example scripts, and various proprietary and non-proprietary Python 2.x scripts for various controllers that were otherwise unsupported in Ableton's official collection of control surfaces. So, a sufficiently committed individual could source many third-party scripts for a reasonable selection of the most popular controllers or reasonably good information about how to write a custom script or adapt an existing script to integrate such controllers with Live 10. With Live 11, the Python interpreter changed, but so too did the API, which has undergone a version upgrade, although the evidence from working with older scripts suggests that the old API is still supported for the moment. 
-
-The team at Ableton are aware of the community's efforts to write/hack remote scripts for Live, and do not appear to actively prohibit it. But neither do they support it in the ways that really matter, for example by providing official API documentation, test/debug utilities for developing scripts, and resources for learning about third-party remote script development. So as a script developer, the resources available are exclusively the product of a dedicated community of volunteers who are not compensated for their work and are working with precisely the same limitations. Some notable contributors have taken the trouble to reverse engineer API documentation (including Live 11), and others have taken considerable pains to create tutorial and other learning content, and a few have even built out repositories of remote scripts for otherwise unsupported controllers. Unfortunately, much of the learning content that is available is very dated, many of the scripts are now incompatible in one way or another with Live 11, and it is difficult to source a script that can serve as a good starting point for the novice Ableton Live remote script developer. 
-
-J74's Generic Remote script, by contrast, is a good starting point. It is easily upgraded to Python 3.x, and it is exceptionally well-annotated making it much easier to adapt to a given controller, and, finally, it is a _generic_ script. It was built as a template so that, in principle, any developer could come along and use it as a starting point with a sufficient feature-set that could be easily configured to serve an otherwise unserved MIDI controller. The only disadvantage to J74's Generic Script is that it uses the old `_Framework` classes (instead of the newer `ableton.v2` classes) and it is difficult at this time to determine whether they will continue to be supported in the future, or, if it can be ascertained, for how long. 
-
-In any case, it seems that they are supported for the present and I have made the working assumption that by the time they are finally aged out a new generation of community resources for Live 11 will replace them and I will be able to write a new Block11 script at that time that will be more durable.
-
-
-## Building on the Generic Script
-
-J74's Generic Script contains most of the essential feature set that a MIDI controller would need to control Live 11, including:
-
-* session redbox and other session controls;
-* clip and scene launching; 
-* mixer and device controls; and so on. 
-
-To adapt the script to a specific controller, J74 has designed it to ensure that customisation is, for the most part, a matter of configuration, i.e., MIDI mapping by code. The file `/Block11/MIDI_Map.py` contains, by default, a collection of variables that represent feature configuration common to all controllers with respect to the given feature set. The default values are then replaced with values unique to the controller (Livid Block, in this case), such as MIDI note values corresponding to pads/buttons or MIDI CC values corresponding to controls like encoders or sliders. Moreover, each variable is annotated to guide the developer's attempts at customisations. The Block11 Script departs from this approach and is developed in a few key phases. 
-
-In phase 0, substantial time was spent doing research, sourcing and experimenting with the existing community resources for remote script development. That phase drew to a close a couple of days ago when I finally found just the right combination of resources (community documentation and the J74 Generic Script) to begin working effectively with remote scripts. 
-
-In phase 1, the current phase, the basic configurations or mappings will be assigned. This version will be available within the next week or two and it should cover the bases, assuming that there are no surprises with API deprecations. The goal at this stage will be to restore basic functionality to the Livid Block in Live 11. 
-
-In phase 2, the next phase, some more advanced customisations will be attempted with the remote script and additional features will be implemented, either with the remote scripts, or with a combination of the Block11 script and a Max Device rack to implement those features. 
-
-## Livid Block Configuration: MIDI Mappings in MIDI_Map.py [WIP]
-Watch this space!
-
-## To use the Block11 Remote Script with Ableton Live 11
-Download the zip file for this repository or clone it locally with git. To download the zip file, just click on the big green button on the Github page for this repo marked `Code` and click `Download Zip`. To clone it locally with git use the following command in a directory of your choice (assuming Git is installed on your system):
+0. Download the zip file 
+1. Unzip the downloaded file (in any location on your system)
+2. Note that after unzipping, you will see a directory called `Block11`; this is the directory you will need to move/copy in order to install
+3. Navigate to the `Remote Scripts` directory and place a copy of the Block11 directory in it. The path to the default location should look like this:
 
 ```sh
-git clone git@github.com:leonardreidy/Block11.git
+Windows: \Users\[username]\Documents\Ableton\User Library\Remote Scripts
+Mac: Macintosh HD/Users/[username]/Music/Ableton/User Library/Remote Scripts
 ```
 
-Once you download/clone the project, note that the top-level project folder is called `Block11`, but you must install the subfolder (also `Block11`) only to the `Remote Scripts` directory on your system. The default location for remote scripts is the `Remote Scripts` directory which is a child of the following directory:
+So, on my system, for example, the path to the Remote Scripts diretcory looks like this:
 
 ```sh
-Windows: \Users\[username]\Documents\Ableton\User Library
-Mac: Macintosh HD/Users/[username]/Music/Ableton/User Library
+\Users\Leo\Documents\Ableton\User Library\Remote Scripts
 ```
 
-When you are done, the file structure of the `Remote Scripts/` directory should look something like this (assuming you have no other third-party remote scripts):
+Once you have copied or moved the Block11 script directory to the User Library Remote Scripts directory, you are essentially done. 
+
+4. Start up Ableton Live 11 and verify the script installed without incident, before proceeding to use the controller. 
+
+## How to verify the script installed
+Once Ableton Live 11 is up and running, take the following steps: 
+
+* open the Preferences dialog;
+* navigate to the 'Link Tempo Midi' tab;
+* find the new control surface (Block11) in the 'Control Surface' dropdown;
+* find the 'block' controller in the Input and Output dropdowns. 
+* make sure 'track' and 'remote' are checked for all block entries
+
+If the script compiled without error, and it should, you will experience no difficulty performing the previous steps. If anything goes wrong you can check Ableton's error logs. These are typically found at the following location:
 
 ```sh
-Remote Scripts/
-├─ Block11/
-│  ├─ __init__.py
-│  ├─ Block11.py
-│  ├─ SpecialChannelStripComponent.py
-│  ├─ SpecialMixerComponent.py
-│  ├─ SpecialSessionComponent.py
-│  ├─ SpecialTransportComponent.py
-│  ├─ SpecialViewControllerComponent.py
-│  ├─ SpecialZoomingComponent.py
+C:\Users\[username]\AppData\Roaming\Ableton\Live 11.0.12\Preferences
 ```
 
+So on my system, the log file is found here:
+
+```sh
+C:\Users\Leo\AppData\Roaming\Ableton\Live 11.0.12\Preferences
+```
+
+If there are errors in the log, please forward it to me at leonardmreidy@gmail.com and I will help you to troubleshoot it. 
+
+## Features currently supported
+All pertinent `Launch Mode` features are currently supported alongside a handful of `Global Controls`, primarily those that are relevant to the kind of work you will typically do in Launch Mode. Work is underway to capture a greater feature set, ideally as similar as possible to the blockLive script which it hopes to replace in some cases. 
+
+## Description of Mappings
+
+- Grid is mapped to tracks, clipslots, and scene launchers (see blockLive manual for more details on the relevant features)
+- Function buttons are partially mapped to Global Controls
+- Sliders are mapped to the Cue Volume, and Master Volume controls respectively
+- The first seven encoders (from left to right) are mapped to track volumes
+- The eighth encoder is mapped to the Mixer X-Fader
