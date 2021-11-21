@@ -13,16 +13,16 @@ The Block11 remote script ports J74's Generic script to Python 3.x and uses this
 ## How to Use
 
 0. Download the zip file (in `github.com` you can do this by clicking the big green 'Code' button above and choosing 'Download Zip')
-1. Unzip the downloaded file (in any location on your system)
-2. Note that after unzipping, you will see a directory called `Block11` which contains a collection of Python (`.py`) files; this is the directory you will need to move/copy in order to install
-3. Navigate to the `Remote Scripts` directory and place a copy of the Block11 directory in it. The path to the default location should look like this:
+1. Unzip the downloaded file (in any location on your system); once the file has been unzipped, the resulting folder, called `Block11-main` will contain the project folder also called `Block11-main`, and that folder contains the script folder: `Block11` along with some other project files you can ignore.
+2. Ignoring everything else, copy the `Block11` folder and prepare to paste/move to the target directory.
+3. Navigate to the target directory (`Remote Scripts`) and place the copy of the Block11 directory in it. The path to the target directory should look like this:
 
 ```sh
 Windows: \Users\[username]\Documents\Ableton\User Library\Remote Scripts
 Mac: Macintosh HD/Users/[username]/Music/Ableton/User Library/Remote Scripts
 ```
 
-So, on my system, for example, the path to the Remote Scripts diretcory looks like this:
+So, on my system, for example, the path to the Remote Scripts directory looks like this:
 
 ```sh
 \Users\Leo\Documents\Ableton\User Library\Remote Scripts
