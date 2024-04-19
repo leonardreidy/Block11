@@ -53,8 +53,6 @@ So on my system, the log file is found here:
 C:\Users\Leo\AppData\Roaming\Ableton\Live 11.0.12\Preferences
 ```
 
-If there are errors in the log, please forward it to me at leonardmreidy@gmail.com and I will help you to troubleshoot it. 
-
 ## Features currently supported
 All pertinent `Launch Mode` features are currently supported alongside a handful of `Global Controls`, primarily those that are relevant to the kind of work you will typically do in Launch Mode. Work is underway to capture a greater feature set, ideally as similar as possible to the blockLive script which it hopes to replace in some cases. 
 
